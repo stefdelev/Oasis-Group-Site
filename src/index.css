@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #072C33;
+  --color-electric-teal: #14B8A6;
+  --color-cantaloupe: #FDBA74;
+  --color-cool-white: #F8FAFC;
+  --color-slate-dark: #0F172A;
+  --color-slate-card: #1e293b;
+
+  --font-family-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-cantaloupe text-obsidian font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-electric-teal text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:brightness-110;
+  }
+
+  .link-teal {
+    @apply text-electric-teal transition-colors duration-300 hover:brightness-125;
+  }
+
+  .section-light {
+    @apply bg-cool-white py-20 md:py-28;
+  }
+
+  .section-dark {
+    @apply bg-slate-dark py-20 md:py-28;
+  }
+
+  .container-main {
+    @apply max-w-6xl mx-auto px-6;
+  }
+}
