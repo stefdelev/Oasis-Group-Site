@@ -44,14 +44,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-light">
+    <section id="contact" className="section-dark">
       <div className="container-main">
         <div className="max-w-xl mx-auto text-center">
           {/* Header */}
-          <h2 className="text-3xl md:text-4xl font-bold text-obsidian mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-4">
             Let's Build Something
           </h2>
-          <p className="text-gray-600 text-lg mb-10">
+          <p className="text-slate-300 text-lg mb-10">
             Whether you're a government exploring digital currency, an institution navigating
             blockchain integration, or an organization ready to implement AI—we'd like to hear from
             you.
@@ -72,7 +72,7 @@ export default function Contact() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-electric-teal focus:ring-2 focus:ring-electric-teal/20 outline-none transition-all duration-300 text-obsidian placeholder:text-gray-400"
+                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
               />
             </div>
 
@@ -89,7 +89,7 @@ export default function Contact() {
                 placeholder="Your Organization"
                 value={formData.organization}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-electric-teal focus:ring-2 focus:ring-electric-teal/20 outline-none transition-all duration-300 text-obsidian placeholder:text-gray-400"
+                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
               />
             </div>
 
@@ -106,7 +106,7 @@ export default function Contact() {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-electric-teal focus:ring-2 focus:ring-electric-teal/20 outline-none transition-all duration-300 text-obsidian placeholder:text-gray-400 resize-none"
+                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-2 focus:ring-oasisAction/20 outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400 resize-none"
               />
             </div>
 
@@ -121,12 +121,12 @@ export default function Contact() {
 
             {/* Status Messages */}
             {submitStatus === 'success' && (
-              <p className="text-electric-teal font-medium">
+              <p className="text-oasisAction font-medium">
                 Thank you! Your message has been sent.
               </p>
             )}
             {submitStatus === 'error' && (
-              <p className="text-red-500 font-medium">
+              <p className="text-red-400 font-medium">
                 Something went wrong. Please try again.
               </p>
             )}

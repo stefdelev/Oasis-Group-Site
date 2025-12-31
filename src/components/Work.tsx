@@ -35,14 +35,14 @@ const workItems = [
 
 export default function Work() {
   return (
-    <section id="work" className="section-light">
+    <section id="work" className="section-dark">
       <div className="container-main">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-obsidian mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-4">
             Building, Not Just Advising
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             As a venture studio, we don't just consult—we build. Here's what that looks like in
             practice.
           </p>

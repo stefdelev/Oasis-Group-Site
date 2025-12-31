@@ -20,13 +20,13 @@ export default function WorkCard({
   featured = false,
 }: WorkCardProps) {
   const labelStyles = {
-    'case-study': 'bg-cantaloupe text-obsidian',
-    portfolio: 'bg-electric-teal/20 text-electric-teal border border-electric-teal/30',
+    'case-study': 'bg-oasisSunset text-oasisDeep',
+    portfolio: 'bg-oasisAction/20 text-oasisAction border border-oasisAction/30',
   };
 
   return (
     <div
-      className={`bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 ${
+      className={`bg-white/5 rounded-xl p-8 border border-white/10 hover:border-oasisAction/30 transition-all duration-300 ${
         featured ? 'lg:col-span-2' : ''
       }`}
     >
@@ -38,17 +38,17 @@ export default function WorkCard({
       </span>
 
       {/* Title */}
-      <h3 className="text-xl md:text-2xl font-bold text-obsidian mb-3">{title}</h3>
+      <h3 className="text-xl md:text-2xl font-bold text-oasisLight mb-3">{title}</h3>
 
       {/* Description */}
-      <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>
+      <p className="text-slate-300 mb-6 leading-relaxed">{description}</p>
 
       {/* Link */}
       <a
         href={linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center text-electric-teal font-semibold hover:brightness-125 transition-all duration-300 group"
+        className="inline-flex items-center text-oasisAction font-semibold hover:brightness-125 transition-all duration-300 group"
       >
         {linkText}
         <ArrowRight

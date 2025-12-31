@@ -21,12 +21,15 @@ export default function Hero() {
         }}
       />
 
+      {/* Radial teal glow */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-oasisAction/10 to-transparent pointer-events-none" />
+
       <div className="container-main relative z-10 text-center py-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-oasisLight mb-6 leading-tight">
           Bringing Frontier Tech Home
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
           We help governments and institutions implement digital currency, blockchain infrastructure,
           and emerging technology—with practitioner depth that theory alone can't deliver.
         </p>

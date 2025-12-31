@@ -52,8 +52,8 @@ export default function Services() {
       <div className="container-main">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What We Do</h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-4">What We Do</h2>
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             We work at the intersection of policy, technology, and practical deployment. Our
             services span three interconnected verticals.
           </p>

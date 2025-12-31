@@ -1,15 +1,15 @@
 export default function About() {
   return (
-    <section id="about" className="section-light">
+    <section id="about" className="section-dark">
       <div className="container-main">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-obsidian mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-8 leading-tight">
               The Global South Deserves Builders, Not Just Advisors
             </h2>
 
-            <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
               <p>
                 Most frontier technology is designed in Western markets and exported as an afterthought.
                 The result? Frameworks that don't fit local realities, implementations that stall, and
@@ -17,7 +17,7 @@ export default function About() {
               </p>
 
               <p>
-                <strong className="text-obsidian">The Oasis Group exists to change that equation.</strong>
+                <strong className="text-oasisLight">The Oasis Group exists to change that equation.</strong>
               </p>
 
               <p>
@@ -37,8 +37,8 @@ export default function About() {
 
           {/* Pull Quote */}
           <div className="lg:col-span-2">
-            <blockquote className="border-l-4 border-electric-teal pl-6 py-4 bg-electric-teal/5 rounded-r-lg">
-              <p className="text-xl md:text-2xl font-medium text-obsidian italic leading-relaxed">
+            <blockquote className="border-l-4 border-oasisAction pl-6 py-4 bg-oasisAction/10 rounded-r-lg">
+              <p className="text-xl md:text-2xl font-medium text-oasisLight italic leading-relaxed">
                 "Big consultancies deliver frameworks. We deliver implementation—at the speed and
                 flexibility institutions actually need."
               </p>
