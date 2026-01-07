@@ -8,7 +8,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen bg-slate-dark flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen bg-oasisDeep flex items-center justify-center relative overflow-hidden">
       {/* Subtle gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-obsidian/30 via-transparent to-slate-dark/50" />
 
@@ -42,7 +42,7 @@ export default function Hero() {
           Start a Conversation
         </a>
 
-        <p className="text-gray-400 text-sm mt-10">
+        <p className="text-slate-400 text-sm mt-10">
           Advising on digital currency since 2017 · Caribbean to East Africa
         </p>
       </div>

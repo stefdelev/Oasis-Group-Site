@@ -22,7 +22,7 @@ export default function ServiceCard({
   };
 
   return (
-    <div className="bg-slate-card rounded-xl p-8 border border-gray-700/50 hover:border-electric-teal/30 transition-colors duration-300">
+    <div className="bg-white/5 rounded-xl p-8 border border-white/10 hover:border-oasisAction/30 transition-colors duration-300">
       {/* Tag */}
       <span
         className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6 ${tagStyles[tagType]}`}
@@ -40,7 +40,7 @@ export default function ServiceCard({
       <ul className="space-y-2 mb-6">
         {capabilities.map((capability, index) => (
           <li key={index} className="text-gray-200 flex items-start">
-            <span className="text-electric-teal mr-2">•</span>
+            <span className="text-oasisAction mr-2">•</span>
             {capability}
           </li>
         ))}

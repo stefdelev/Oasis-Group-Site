@@ -30,8 +30,17 @@
 }
 
 @layer components {
+  .section-dark {
+    @apply bg-oasisDeep py-20 md:py-28 border-t border-white/5;
+  }
+
+  .container-main {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
   .btn-primary {
-    @apply bg-oasisSunset text-oasisDeep font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-105;
+    @apply bg-oasisSunset text-oasisDeep font-bold py-3 px-8 rounded-lg
+           transition-all duration-300 hover:brightness-110 hover:scale-105;
   }
 
   .btn-secondary {
@@ -40,17 +49,5 @@
 
   .link-teal {
     @apply text-electric-teal transition-colors duration-300 hover:brightness-125;
-  }
-
-  .section-light {
-    @apply bg-cool-white py-20 md:py-28;
-  }
-
-  .section-dark {
-    @apply bg-slate-dark py-20 md:py-28;
-  }
-
-  .container-main {
-    @apply max-w-6xl mx-auto px-6;
   }
 }

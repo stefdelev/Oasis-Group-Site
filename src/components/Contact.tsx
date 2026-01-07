@@ -72,7 +72,7 @@ export default function Contact() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
+                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-500"
               />
             </div>
 
@@ -89,7 +89,7 @@ export default function Contact() {
                 placeholder="Your Organization"
                 value={formData.organization}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
+                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-500"
               />
             </div>
 
@@ -106,7 +106,7 @@ export default function Contact() {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-2 focus:ring-oasisAction/20 outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400 resize-none"
+                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-500 resize-none"
               />
             </div>
 
