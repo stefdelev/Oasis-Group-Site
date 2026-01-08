@@ -47,7 +47,7 @@
   }
 
   .section-dark {
-    @apply bg-slate-dark py-20 md:py-28;
+    @apply bg-slate-dark py-20 md:py-28 border-t border-white/10;
   }
 
   .container-main {
