@@ -43,13 +43,18 @@ export default function Navigation() {
           {/* Logo */}
           <a
             href="#"
-            className="text-white font-bold text-xl tracking-tight hover:text-electric-teal transition-colors duration-300"
+            className="block hover:opacity-90 transition-opacity duration-300"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            The Oasis Group
+            <img
+              src="/images/oasis-logo.webp"
+              alt="The Oasis Group"
+              className="h-12 md:h-14 w-auto"
+              loading="eager"
+            />
           </a>
 
           {/* Desktop Navigation */}

@@ -7,7 +7,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left Side */}
           <div className="text-center md:text-left">
-            <p className="text-white font-bold text-xl mb-1">The Oasis Group</p>
+            <img
+              src="/images/oasis-logo.webp"
+              alt="The Oasis Group"
+              className="h-12 w-auto mb-2"
+            />
             <p className="text-gray-400 text-sm">Bringing Frontier Tech Home</p>
           </div>
 
