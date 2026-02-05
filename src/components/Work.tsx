@@ -16,7 +16,7 @@ const workItems = [
     labelType: 'portfolio' as const,
     title: "The Caribbean's Frontier Tech Ecosystem",
     description:
-      "Oasis Onchain is our flagship event and ecosystem initiative—a summit bringing together builders, policymakers, and investors focused on the Global South. Featured in Forbes as part of the region's emerging crypto landscape.",
+      "Oasis Onchain is our flagship event: a summit bringing together builders, policymakers, and investors focused on the Global South. Featured in Forbes as part of the region's emerging crypto landscape.",
     linkText: 'Visit Oasis Onchain',
     linkUrl: 'https://www.oasisonchain.xyz',
     featured: false,
@@ -40,10 +40,10 @@ export default function Work() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-4">
-            Building, Not Just Advising
+            We Build What We Advise
           </h2>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            As a venture studio, we don't just consult—we build. Here's what that looks like in
+            As a venture studio, we don't just consult, we build. Here's what that looks like in
             practice.
           </p>
         </div>

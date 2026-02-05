@@ -27,8 +27,8 @@ export default function About() {
               </p>
 
               <p>
-                Our founder, Stefen Deleveaux, has advised on digital currency strategy since 2017—years
-                before most nations had CBDC on their agenda. That practitioner knowledge, paired with
+                Our founder, Stefen Deleveaux, has advised on digital currency strategy since 2017, years
+                before most nations had CBDC on their agenda. That hands-on experience, paired with
                 a network of specialist partners, allows us to move from policy to production in ways
                 that traditional consultancies cannot.
               </p>
@@ -39,7 +39,7 @@ export default function About() {
           <div className="lg:col-span-2">
             <blockquote className="border-l-4 border-oasisAction pl-6 py-4 bg-oasisAction/10 rounded-r-lg">
               <p className="text-xl md:text-2xl font-medium text-oasisLight italic leading-relaxed">
-                "Big consultancies deliver frameworks. We deliver implementation—at the speed and
+                "Big consultancies deliver frameworks. We deliver implementation, at the speed and
                 flexibility institutions actually need."
               </p>
             </blockquote>

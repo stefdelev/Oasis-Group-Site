@@ -21,7 +21,7 @@ const services = [
     tagType: 'growing' as const,
     title: 'Applied AI & Emerging Tech',
     description:
-      'Artificial intelligence is reshaping how institutions operate and serve constituents. We help organizations move beyond hype to practical, deployable solutions.',
+      "AI is changing how institutions work. We help organizations figure out what's actually useful and get it running.",
     capabilities: [
       'AI implementation strategy',
       'Infrastructure and tooling assessment',
@@ -35,14 +35,14 @@ const services = [
     tagType: 'supporting' as const,
     title: 'Digital Coordination & Governance',
     description:
-      'New organizational models require new infrastructure. We design systems for transparent contribution tracking, distributed governance, and digital-native coordination.',
+      'New organizational models require new infrastructure. We design systems for transparent contribution tracking, distributed governance, and online coordination.',
     capabilities: [
       'DAO architecture and governance design',
       'Contribution tracking systems',
       'Organizational tooling for distributed teams',
     ],
     proofPoints:
-      'Experience with Govrn, The DAOist, and pioneering contribution-based governance frameworks.',
+      'Experience with DAOs, and pioneering contribution-based governance frameworks.',
   },
 ];
 

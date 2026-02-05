@@ -52,9 +52,8 @@ export default function Contact() {
             Let's Build Something
           </h2>
           <p className="text-slate-300 text-lg mb-10">
-            Whether you're a government exploring digital currency, an institution navigating
-            blockchain integration, or an organization ready to implement AI—we'd like to hear from
-            you.
+            Whether you're a government exploring digital currency, an institution looking at
+            blockchain, or an organization thinking about AI, we'd like to hear from you.
           </p>
 
           {/* Form */}

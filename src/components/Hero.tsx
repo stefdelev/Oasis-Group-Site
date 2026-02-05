@@ -31,7 +31,7 @@ export default function Hero() {
 
         <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
           We help governments and institutions implement digital currency, blockchain infrastructure,
-          and emerging technology—with practitioner depth that theory alone can't deliver.
+          and emerging technology. We've done this work ourselves, not just studied it.
         </p>
 
         <a
