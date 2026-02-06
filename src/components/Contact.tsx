@@ -3,6 +3,7 @@ import { useState } from 'react';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     organization: '',
     message: '',
   });
@@ -20,22 +21,22 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // For now, simulate a form submission
-    // In production, replace with actual form handling (e.g., Formspree, custom API)
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formData,
+        }).toString(),
+      });
 
-      // Create mailto link as fallback
-      const mailtoLink = `mailto:hello@theoasisgroup.xyz?subject=Inquiry from ${encodeURIComponent(
-        formData.name
-      )} at ${encodeURIComponent(formData.organization)}&body=${encodeURIComponent(
-        formData.message
-      )}`;
-      window.location.href = mailtoLink;
-
-      setSubmitStatus('success');
-      setFormData({ name: '', organization: '', message: '' });
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', organization: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch {
       setSubmitStatus('error');
     } finally {
@@ -57,7 +58,24 @@ export default function Contact() {
           </p>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+            {/* Hidden field for Netlify */}
+            <input type="hidden" name="form-name" value="contact" />
+
+            {/* Honeypot for spam protection */}
+            <p className="hidden">
+              <label>
+                Don't fill this out: <input name="bot-field" onChange={handleChange} />
+              </label>
+            </p>
+
             {/* Name */}
             <div>
               <label htmlFor="name" className="sr-only">
@@ -70,6 +88,23 @@ export default function Contact() {
                 required
                 placeholder="Your Name"
                 value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Your Email"
+                value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-slate-card border border-gray-700 focus:border-oasisAction focus:ring-1 focus:ring-oasisAction outline-none transition-all duration-300 text-oasisLight placeholder:text-slate-400"
               />
