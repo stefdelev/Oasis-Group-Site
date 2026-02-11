@@ -7,8 +7,8 @@ const workItems = [
     title: 'Economic Infrastructure for Underserved Markets',
     description:
       'Artisand is a live e-commerce marketplace connecting Bahamian artists and artisans directly with customers. Built from the ground up using AI-assisted development, it demonstrates our approach: production-grade platforms that create real economic opportunity.',
-    linkText: 'Visit Artisand',
-    linkUrl: 'https://www.artisand.art',
+    linkText: 'Coming Soon',
+    linkUrl: '',
     featured: true,
   },
   {

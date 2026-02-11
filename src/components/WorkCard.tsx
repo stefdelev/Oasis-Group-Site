@@ -44,18 +44,24 @@ export default function WorkCard({
       <p className="text-slate-300 mb-6 leading-relaxed">{description}</p>
 
       {/* Link */}
-      <a
-        href={linkUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center text-oasisAction font-semibold hover:brightness-125 transition-all duration-300 group"
-      >
-        {linkText}
-        <ArrowRight
-          size={18}
-          className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
-        />
-      </a>
+      {linkUrl ? (
+        <a
+          href={linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-oasisAction font-semibold hover:brightness-125 transition-all duration-300 group"
+        >
+          {linkText}
+          <ArrowRight
+            size={18}
+            className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
+          />
+        </a>
+      ) : (
+        <span className="inline-flex items-center text-slate-400 font-semibold">
+          {linkText}
+        </span>
+      )}
     </div>
   );
 }

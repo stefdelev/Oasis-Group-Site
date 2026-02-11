@@ -14,7 +14,7 @@ const services = [
       'Financial inclusion infrastructure',
     ],
     proofPoints:
-      'Advised the early Sand Dollar team in The Bahamas · Consulted with the Central Bank of Tanzania on crypto policy · Multiple engagements with the Inter-American Development Bank',
+      'Advisor to the early CBDC "SandDollar" research and current adoption team in the Bahamas · Consulted Bank of Tanzania on digital assets and crypto policy · Multiple engagements with the Inter-American Development Bank',
   },
   {
     tag: 'Growing Practice',
