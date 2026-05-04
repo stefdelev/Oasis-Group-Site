@@ -99,14 +99,14 @@ Skip:
 - `artisand-screen.jpg` — alternate Artisand crop kept for reference, not used in the final design.
 - `prototype/styles.css`, `prototype/components/*.jsx`, `prototype/index.html`, `prototype/tweaks-panel.jsx` — design references, do not port verbatim. Translate to Tailwind + targeted custom CSS.
 
-## 8. Open questions raised by prototype inconsistencies
+## 8. Prototype inconsistencies — resolved 2026-05-04
 
-The prototype has two minor inconsistencies that need a one-line decision before implementation. These are small enough to ratify in code review rather than block here, but recording them so they're not forgotten:
+The prototype source had two small inconsistencies. Both ratified during review:
 
-| # | Inconsistency | Default to ship | Override? |
-|---|---|---|---|
-| OQ-1 | Footer email link uses `inquiry@theoasisgroup.xyz`; contact section meta row uses `hello@theoasisgroup.xyz`. | Use `hello@theoasisgroup.xyz` everywhere (contact section is the canonical place users will read it; consistency wins over the footer's variant). | If you'd rather route footer "Email" link to a different address, say so during review. |
-| OQ-2 | Footer "Connect" column has a YouTube link with `href="#"` (placeholder). | Point it at `https://www.youtube.com/@OasisFrontierFounders` (same URL as the Frontier Founders work card). | If a different channel is correct, say so during review. |
+| # | Inconsistency | Resolution |
+|---|---|---|
+| OQ-1 | Footer email link in `prototype/components/sections-3.jsx → Footer` uses `inquiry@theoasisgroup.xyz`; contact section meta row uses `hello@theoasisgroup.xyz`. | **`hello@theoasisgroup.xyz` is the canonical address; the footer's `inquiry@` was incorrect.** Both contact section and footer link to `mailto:hello@theoasisgroup.xyz`. |
+| OQ-2 | Footer "Connect" column had YouTube link with `href="#"` (placeholder). | **Point at `https://www.youtube.com/@OasisFrontierFounders`** (same URL as the Frontier Founders work card). `target="_blank" rel="noopener noreferrer"`. |
 
 ## 9. Interactions & animations (faithful to handoff)
 
