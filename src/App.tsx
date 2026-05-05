@@ -1,6 +1,5 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import CredibilityBar from './components/CredibilityBar';
 import About from './components/About';
 import Services from './components/Services';
 import Work from './components/Work';
@@ -10,11 +9,10 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-oasisDeep">
+    <div className="min-h-screen">
       <Navigation />
       <main>
         <Hero />
-        <CredibilityBar />
         <About />
         <Services />
         <Work />

@@ -1,105 +1,110 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState, type MouseEvent } from 'react';
+import BracketWordmark from './BracketWordmark';
 
-const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Work' },
-  { href: '#contact', label: 'Contact' },
-];
+const NAV_ITEMS = [
+  { id: 'about',    label: 'About'    },
+  { id: 'practice', label: 'Practice' },
+  { id: 'work',     label: 'Work'     },
+  { id: 'contact',  label: 'Contact'  },
+] as const;
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>('');
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      let current = '';
+      for (const { id } of NAV_ITEMS) {
+        const el = document.getElementById(id);
+        if (el) {
+          const r = el.getBoundingClientRect();
+          if (r.top <= 120 && r.bottom > 200) current = id;
+        }
+      }
+      setActive(current);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const goTo = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
+    setMobileOpen(false);
+  };
+
+  const goTop = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMobileOpen(false);
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
-          ? 'bg-slate-dark/95 backdrop-blur-sm shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container-main">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+    <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className="shell nav-row">
+        <a href="#top" onClick={goTop} className="nav-mark" aria-label="The Oasis Group home">
+          <BracketWordmark size="sm" light />
+        </a>
+
+        <div className="nav-links">
+          {NAV_ITEMS.map((it) => (
+            <a
+              key={it.id}
+              href={`#${it.id}`}
+              className={`nav-link ${active === it.id ? 'active' : ''}`}
+              onClick={(e) => goTo(e, it.id)}
+            >
+              {it.label}
+            </a>
+          ))}
           <a
-            href="#"
-            className="block hover:opacity-90 transition-opacity duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            href="#contact"
+            className="nav-cta"
+            onClick={(e) => goTo(e, 'contact')}
           >
-            <img
-              src="/images/oasis-logo.webp"
-              alt="The Oasis Group"
-              className="h-12 md:h-14 w-auto"
-              loading="eager"
-            />
+            Partner with us
+            <span className="arrow" aria-hidden>→</span>
           </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-white hover:text-electric-teal transition-colors duration-300 font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2 hover:text-electric-teal transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-64 pb-6' : 'max-h-0'
-          }`}
+        <button
+          type="button"
+          className="nav-burger"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label="Menu"
+          aria-expanded={mobileOpen}
         >
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-white hover:text-electric-teal transition-colors duration-300 font-medium text-lg"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {mobileOpen ? (
+              <path d="M6 6L18 18M6 18L18 6" />
+            ) : (
+              <>
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </>
+            )}
+          </svg>
+        </button>
+      </div>
+
+      <div className={`nav-mobile shell ${mobileOpen ? 'open' : ''}`}>
+        {NAV_ITEMS.map((it) => (
+          <a key={it.id} href={`#${it.id}`} onClick={(e) => goTo(e, it.id)}>
+            {it.label}
+          </a>
+        ))}
+        <a href="#contact" onClick={(e) => goTo(e, 'contact')}>
+          Partner with us →
+        </a>
       </div>
     </nav>
   );
