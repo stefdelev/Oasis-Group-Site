@@ -1,57 +1,96 @@
+import Reveal from './Reveal';
 import WorkCard from './WorkCard';
 
-const workItems = [
+type WorkItem = {
+  label: string;
+  title: string;
+  desc: string;
+  link: string;
+  href: string;
+  img?: string;
+};
+
+const WORK_ITEMS: WorkItem[] = [
   {
-    label: 'Case Study',
-    labelType: 'case-study' as const,
-    title: 'Economic Infrastructure for Underserved Markets',
-    description:
-      'Artisand is a live e-commerce marketplace connecting Bahamian artists and artisans directly with customers. Built from the ground up using AI-assisted development, it demonstrates our approach: production-grade platforms that create real economic opportunity.',
-    linkText: 'Coming Soon',
-    linkUrl: '',
-    featured: true,
+    label: 'Venture · Bahamas',
+    title: 'DARE Advisor',
+    desc: 'AI-driven advisor that guides digital-asset businesses through the entire DARE Act registration process — from path selection to document generation.',
+    link: 'Visit DARE Advisor',
+    href: 'https://dare-advisor.vercel.app',
   },
   {
-    label: 'Portfolio',
-    labelType: 'portfolio' as const,
-    title: "The Caribbean's Frontier Tech Ecosystem",
-    description:
-      "Oasis Onchain is our flagship event: a summit bringing together builders, policymakers, and investors focused on the Global South. Featured in Forbes as part of the region's emerging crypto landscape.",
-    linkText: 'Visit Oasis Onchain',
-    linkUrl: 'https://www.oasisonchain.xyz',
-    featured: false,
+    label: 'Portfolio · Caribbean',
+    title: 'Oasis Onchain',
+    desc: 'Our flagship summit bringing together builders, policymakers, and investors focused on the Global South. Featured in Forbes.',
+    link: 'Visit Oasis Onchain',
+    href: 'https://www.oasisonchain.xyz',
+    img: 'oasis-onchain-event.jpeg',
   },
   {
-    label: 'Portfolio',
-    labelType: 'portfolio' as const,
-    title: 'Conversations from the Edge',
-    description:
-      'A podcast exploring frontier technology through the lens of builders actually doing the work. Long-form conversations with founders, policymakers, and technologists shaping the future.',
-    linkText: 'Watch on YouTube',
-    linkUrl: 'https://www.youtube.com/@OasisFrontierFounders',
-    featured: false,
+    label: 'Portfolio · Media',
+    title: 'Frontier Founders',
+    desc: 'A podcast exploring frontier technology through the lens of founders actually doing the work — long-form conversations with builders shaping the future.',
+    link: 'Watch on YouTube',
+    href: 'https://www.youtube.com/@OasisFrontierFounders',
   },
 ];
 
 export default function Work() {
   return (
-    <section id="work" className="section-dark">
-      <div className="container-main">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-oasisLight mb-4">
-            We Build What We Advise
-          </h2>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            As a venture studio, we don't just consult, we build. Here's what that looks like in
-            practice.
+    <section id="work" className="section section-light">
+      <div className="shell">
+        <Reveal className="section-head">
+          <div>
+            <div className="section-tag">[ 03 ] Our Work</div>
+            <h2 className="section-title">
+              Theory meets<br />
+              <em>practice.</em>
+            </h2>
+          </div>
+          <p className="section-lead">
+            As a venture studio, we don't just consult — we build. Each engagement
+            ships infrastructure, ventures, or policy frameworks that operate at
+            real-world scale.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Work Cards */}
-        <div className="grid lg:grid-cols-2 gap-8">
-          {workItems.map((item, index) => (
-            <WorkCard key={index} {...item} />
+        <Reveal>
+          <article className="work-feature">
+            <div className="work-feature-art">
+              <img
+                src="/images/artisand-screen2.png"
+                alt="Artisand Marketplace — Discover Island Wonders"
+              />
+            </div>
+            <div className="work-feature-body">
+              <span className="work-label">Featured Case Study · Artisand</span>
+              <h3 className="work-feature-title">
+                Scaling the artisanal economy through AI &amp; Web3.
+              </h3>
+              <p className="work-feature-desc">
+                Artisand is a live e-commerce marketplace connecting Bahamian
+                artisans directly with global customers. Built ground-up with
+                AI-assisted development on a decentralized platform — production
+                infrastructure that creates real economic opportunity.
+              </p>
+              <a
+                href="https://www.artisand.art"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary work-feature-link"
+              >
+                Visit Artisand
+                <span className="arrow" aria-hidden>↗</span>
+              </a>
+            </div>
+          </article>
+        </Reveal>
+
+        <div className="work-grid">
+          {WORK_ITEMS.map((w, i) => (
+            <Reveal key={w.title} delay={i * 80}>
+              <WorkCard {...w} />
+            </Reveal>
           ))}
         </div>
       </div>
