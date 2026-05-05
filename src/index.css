@@ -1067,7 +1067,7 @@
 .field textarea:focus,
 .field select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(201,169,97,0.18);
+  box-shadow: 0 0 0 3px rgba(201,169,97,0.45);
 }
 .field input.error,
 .field textarea.error,
@@ -1191,6 +1191,51 @@
 }
 @media (max-width: 600px) {
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ============================================================
+   Focus-visible (keyboard accessibility)
+   ============================================================ */
+.nav-link:focus-visible {
+  outline: none;
+  color: #fff;
+}
+.nav-link:focus-visible::after { right: 0; }
+
+.nav-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-burger:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.practice-row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.work-card:focus-within {
+  outline: none;
+}
+.work-card-link:focus-visible,
+.press-source:focus-visible,
+.contact-meta-row a:focus-visible,
+.footer-col a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* ============================================================
