@@ -1,50 +1,86 @@
+import { type MouseEvent } from 'react';
+import GlobeArt from './GlobeArt';
+
+const MARQUEE_ITEMS = [
+  'Central Bank of The Bahamas',
+  'Sand Dollar CBDC',
+  'Bank of Tanzania',
+  'Inter-American Development Bank',
+  'Forbes',
+  'Oasis Onchain',
+  'Artisand',
+  'Frontier Founders',
+];
+
 export default function Hero() {
-  const handleCTAClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const goTo = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="min-h-screen bg-slate-dark flex items-center justify-center relative overflow-hidden">
-      {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-obsidian/30 via-transparent to-slate-dark/50" />
+    <section className="hero" id="top">
+      <div className="shell hero-grid">
+        <div>
+          <div className="hero-eyebrow">Boutique advisory · Frontier technology</div>
+          <h1 className="hero-title">
+            Architects of the<br />
+            <em>Digital Frontier.</em>
+          </h1>
+          <p className="hero-sub">
+            We help governments, central banks, and institutions implement digital
+            currency, applied AI, and emerging-tech infrastructure — with the
+            practitioner depth that theory alone can't deliver.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn btn-primary" onClick={(e) => goTo(e, 'contact')}>
+              Start a conversation
+              <span className="arrow" aria-hidden>→</span>
+            </a>
+            <a href="#work" className="btn btn-ghost" onClick={(e) => goTo(e, 'work')}>
+              See our work
+            </a>
+          </div>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <div className="num">2017</div>
+              <div className="lbl">Advising on<br />digital currency</div>
+            </div>
+            <div className="hero-stat">
+              <div className="num">Trusted by</div>
+              <div className="lbl">Sovereign &amp; Institutional<br />Clients</div>
+            </div>
+            <div className="hero-stat">
+              <div className="num">3</div>
+              <div className="lbl">Live ventures<br />in production</div>
+            </div>
+          </div>
+        </div>
 
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #14B8A6 1px, transparent 1px), linear-gradient(to bottom, #14B8A6 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
+        <div className="hero-art float-slow">
+          <div className="hero-art-frame" aria-hidden />
+          <span className="hero-art-bracket tl" aria-hidden />
+          <span className="hero-art-bracket tr" aria-hidden />
+          <span className="hero-art-bracket bl" aria-hidden />
+          <span className="hero-art-bracket br" aria-hidden />
+          <GlobeArt />
+          <div className="hero-art-meta">
+            Reach<br />
+            <strong>Caribbean → East Africa</strong>
+          </div>
+        </div>
+      </div>
 
-      {/* Radial teal glow */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-oasisAction/10 to-transparent pointer-events-none" />
-
-      <div className="container-main relative z-10 text-center py-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-oasisLight mb-6 leading-tight">
-          Bringing Frontier Tech Home
-        </h1>
-
-        <p className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-          We help governments and institutions implement digital currency, blockchain infrastructure,
-          and emerging technology. We've done this work ourselves, not just studied it.
-        </p>
-
-        <a
-          href="#contact"
-          onClick={handleCTAClick}
-          className="btn-primary inline-block text-lg"
-        >
-          Start a Conversation
-        </a>
-
-        <p className="text-gray-400 text-sm mt-10">
-          Advising on digital currency since 2017 · Caribbean to East Africa
-        </p>
+      <div className="hero-marquee" aria-hidden>
+        <div className="marquee-track">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
+            <span key={i} className="marquee-item">{t}</span>
+          ))}
+        </div>
       </div>
     </section>
   );

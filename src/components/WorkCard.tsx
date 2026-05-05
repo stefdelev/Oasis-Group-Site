@@ -1,67 +1,34 @@
-import { ArrowRight } from 'lucide-react';
-
-interface WorkCardProps {
+type WorkCardProps = {
   label: string;
-  labelType: 'case-study' | 'portfolio';
   title: string;
-  description: string;
-  linkText: string;
-  linkUrl: string;
-  featured?: boolean;
-}
+  desc: string;
+  link: string;
+  href: string;
+  img?: string;
+};
 
-export default function WorkCard({
-  label,
-  labelType,
-  title,
-  description,
-  linkText,
-  linkUrl,
-  featured = false,
-}: WorkCardProps) {
-  const labelStyles = {
-    'case-study': 'bg-oasisSunset text-oasisDeep',
-    portfolio: 'bg-oasisAction/20 text-oasisAction border border-oasisAction/30',
-  };
+export default function WorkCard({ label, title, desc, link, href, img }: WorkCardProps) {
+  const isImg = Boolean(img);
+  const cls = `work-card${isImg ? ' work-card-img' : ''}`;
+  const style = img
+    ? {
+        backgroundImage: `linear-gradient(to bottom, rgba(10,27,51,0.35) 0%, rgba(10,27,51,0.82) 60%), url(/images/${img})`,
+      }
+    : undefined;
 
   return (
-    <div
-      className={`bg-white/5 rounded-xl p-8 border border-white/10 hover:border-oasisAction/30 transition-all duration-300 ${
-        featured ? 'lg:col-span-2' : ''
-      }`}
-    >
-      {/* Label */}
-      <span
-        className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${labelStyles[labelType]}`}
+    <article className={cls} style={style}>
+      <span className="work-label">{label}</span>
+      <h4 className="work-card-title">{title}</h4>
+      <p className="work-card-desc">{desc}</p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="work-card-link"
       >
-        {label}
-      </span>
-
-      {/* Title */}
-      <h3 className="text-xl md:text-2xl font-bold text-oasisLight mb-3">{title}</h3>
-
-      {/* Description */}
-      <p className="text-slate-300 mb-6 leading-relaxed">{description}</p>
-
-      {/* Link */}
-      {linkUrl ? (
-        <a
-          href={linkUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-oasisAction font-semibold hover:brightness-125 transition-all duration-300 group"
-        >
-          {linkText}
-          <ArrowRight
-            size={18}
-            className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
-          />
-        </a>
-      ) : (
-        <span className="inline-flex items-center text-slate-400 font-semibold">
-          {linkText}
-        </span>
-      )}
-    </div>
+        {link} <span className="arrow" aria-hidden>↗</span>
+      </a>
+    </article>
   );
 }
