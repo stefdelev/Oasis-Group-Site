@@ -1,7 +1,7 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
+import Practice from './components/Practice';
 import Work from './components/Work';
 import Press from './components/Press';
 import Contact from './components/Contact';
@@ -14,7 +14,7 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Services />
+        <Practice />
         <Work />
         <Press />
         <Contact />
