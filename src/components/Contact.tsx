@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import Reveal from './Reveal';
 
 type FormState = {
@@ -32,6 +32,13 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>('idle');
+  const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+
+  useEffect(() => {
+    if (status === 'success') {
+      successHeadingRef.current?.focus();
+    }
+  }, [status]);
 
   const upd = (k: keyof FormState) =>
     (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -123,13 +130,13 @@ export default function Contact() {
 
             <div className="contact-right">
               {status === 'success' ? (
-                <div className="contact-success">
+                <div className="contact-success" role="status" aria-live="polite">
                   <div className="contact-success-icon" aria-hidden>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 12l5 5L20 7" />
                     </svg>
                   </div>
-                  <h3>Inquiry received.</h3>
+                  <h3 ref={successHeadingRef} tabIndex={-1}>Inquiry received.</h3>
                   <p>We'll be in touch within two business days.</p>
                 </div>
               ) : (
@@ -160,8 +167,10 @@ export default function Contact() {
                         onChange={upd('name')}
                         className={errors.name ? 'error' : ''}
                         placeholder="Full name"
+                        aria-invalid={Boolean(errors.name)}
+                        aria-describedby={errors.name ? 'contact-name-error' : undefined}
                       />
-                      {errors.name && <span className="field-error">{errors.name}</span>}
+                      {errors.name && <span id="contact-name-error" className="field-error">{errors.name}</span>}
                     </div>
                     <div className="field">
                       <label htmlFor="contact-email">Email</label>
@@ -173,8 +182,10 @@ export default function Contact() {
                         onChange={upd('email')}
                         className={errors.email ? 'error' : ''}
                         placeholder="you@org.com"
+                        aria-invalid={Boolean(errors.email)}
+                        aria-describedby={errors.email ? 'contact-email-error' : undefined}
                       />
-                      {errors.email && <span className="field-error">{errors.email}</span>}
+                      {errors.email && <span id="contact-email-error" className="field-error">{errors.email}</span>}
                     </div>
                   </div>
 
@@ -188,8 +199,10 @@ export default function Contact() {
                       onChange={upd('org')}
                       className={errors.org ? 'error' : ''}
                       placeholder="Central bank, ministry, fund, firm…"
+                      aria-invalid={Boolean(errors.org)}
+                      aria-describedby={errors.org ? 'contact-org-error' : undefined}
                     />
-                    {errors.org && <span className="field-error">{errors.org}</span>}
+                    {errors.org && <span id="contact-org-error" className="field-error">{errors.org}</span>}
                   </div>
 
                   <div className="field">
@@ -218,8 +231,10 @@ export default function Contact() {
                       onChange={upd('message')}
                       className={errors.message ? 'error' : ''}
                       placeholder="The institutional context, the outcome you're after, any constraints we should know about."
+                      aria-invalid={Boolean(errors.message)}
+                      aria-describedby={errors.message ? 'contact-message-error' : undefined}
                     />
-                    {errors.message && <span className="field-error">{errors.message}</span>}
+                    {errors.message && <span id="contact-message-error" className="field-error">{errors.message}</span>}
                   </div>
 
                   <button
@@ -231,7 +246,7 @@ export default function Contact() {
                   </button>
 
                   {status === 'error' && (
-                    <span className="field-error" style={{ marginTop: 12 }}>
+                    <span role="alert" className="field-error" style={{ marginTop: 12 }}>
                       Something went wrong. Please email hello@theoasisgroup.xyz directly.
                     </span>
                   )}

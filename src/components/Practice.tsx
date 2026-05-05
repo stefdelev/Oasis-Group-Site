@@ -83,28 +83,38 @@ export default function Practice() {
 
         <Reveal className="practice-list">
           {PRACTICE_AREAS.map((p, i) => (
-            <button
+            <div
               key={p.num}
-              type="button"
               className={`practice-row ${open === i ? 'open' : ''}`}
-              onClick={() => toggle(i)}
-              aria-expanded={open === i}
             >
-              <div className="practice-num">[ {p.num} ]</div>
-              <div className="practice-title-wrap">
-                <span className="practice-tag">{p.tag}</span>
-                <div className="practice-title">{p.title}</div>
-              </div>
-              <div className="practice-desc">{p.desc}</div>
-              <div className="practice-meta">
-                <span>{p.meta}</span>
-                <span className="practice-toggle" aria-hidden>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </span>
-              </div>
-              <div className="practice-detail">
+              <button
+                type="button"
+                className="practice-row-header"
+                onClick={() => toggle(i)}
+                aria-expanded={open === i}
+                aria-controls={`practice-panel-${i}`}
+              >
+                <div className="practice-num">[ {p.num} ]</div>
+                <div className="practice-title-wrap">
+                  <span className="practice-tag">{p.tag}</span>
+                  <div className="practice-title">{p.title}</div>
+                </div>
+                <div className="practice-desc">{p.desc}</div>
+                <div className="practice-meta">
+                  <span>{p.meta}</span>
+                  <span className="practice-toggle" aria-hidden>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </span>
+                </div>
+              </button>
+              <div
+                id={`practice-panel-${i}`}
+                className="practice-detail"
+                role="region"
+                aria-label={p.title}
+              >
                 <ul className="practice-cap-list">
                   {p.capabilities.map((c, j) => (
                     <li key={j}>{c}</li>
@@ -115,7 +125,7 @@ export default function Practice() {
                   {p.proof}
                 </div>
               </div>
-            </button>
+            </div>
           ))}
         </Reveal>
       </div>

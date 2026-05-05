@@ -585,20 +585,9 @@
   border-top: 1px solid rgba(255,255,255,0.10);
 }
 .practice-row {
-  display: grid;
-  grid-template-columns: 80px 1.5fr 2fr 1fr;
-  gap: 32px;
-  padding: 36px 0;
   border-bottom: 1px solid rgba(255,255,255,0.10);
-  align-items: start;
-  cursor: pointer;
   position: relative;
   transition: padding 320ms cubic-bezier(.4,0,.2,1);
-  background: transparent;
-  text-align: left;
-  width: 100%;
-  color: inherit;
-  font: inherit;
 }
 .practice-row::before {
   content: '';
@@ -614,6 +603,22 @@
 .practice-row.open::before { width: 100%; }
 .practice-row:hover,
 .practice-row.open { padding-left: 12px; }
+
+.practice-row-header {
+  display: grid;
+  grid-template-columns: 80px 1.5fr 2fr 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  align-items: start;
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  color: inherit;
+  font: inherit;
+  border: 0;
+}
 
 .practice-num {
   font-family: var(--font-mono);
@@ -679,18 +684,17 @@
 .practice-toggle svg { transition: transform 320ms ease; }
 
 .practice-detail {
-  grid-column: 2 / -1;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 48px;
-  padding: 0 0 12px;
+  padding: 0 0 0 112px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 520ms cubic-bezier(.4,0,.2,1), padding 520ms ease;
 }
 .practice-row.open .practice-detail {
   max-height: 600px;
-  padding: 12px 0 24px;
+  padding: 12px 0 24px 112px;
 }
 .practice-cap-list {
   display: flex;
@@ -731,14 +735,23 @@
   color: var(--accent);
   margin-bottom: 12px;
 }
+
 @media (max-width: 880px) {
-  .practice-row {
+  .practice-row-header {
     grid-template-columns: 50px 1fr;
     gap: 16px;
   }
-  .practice-desc, .practice-meta { display: none; }
+  .practice-row-header .practice-desc,
+  .practice-row-header .practice-meta { display: none; }
   .practice-title { font-size: 22px; }
-  .practice-detail { grid-template-columns: 1fr; gap: 24px; grid-column: 2; }
+  .practice-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-left: 66px;
+  }
+  .practice-row.open .practice-detail {
+    padding-left: 66px;
+  }
 }
 
 /* ============================================================
@@ -1217,7 +1230,7 @@
   outline-offset: 3px;
 }
 
-.practice-row:focus-visible {
+.practice-row-header:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
 }
