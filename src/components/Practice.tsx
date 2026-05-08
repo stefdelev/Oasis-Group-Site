@@ -15,15 +15,14 @@ const PRACTICE_AREAS: PracticeArea[] = [
   {
     num: '01',
     tag: 'Primary Focus',
-    title: 'Digital Currency & Financial Infrastructure',
+    title: 'Digital Currency & Blockchain Infrastructure',
     desc: 'From policy design to technical implementation, we navigate the full lifecycle of digital currency and blockchain adoption for governments and financial institutions.',
     meta: 'Primary practice',
     capabilities: [
       'CBDC strategy & implementation advisory',
       'Blockchain integration (public + private sector)',
       'Regulatory framework development',
-      'Financial inclusion infrastructure',
-      'Cross-border payment systems',
+      'Stablecoin strategy & Cross-border payment systems',
     ],
     proof:
       'Advisor to the early Sand Dollar CBDC team in The Bahamas. Consulted with the Bank of Tanzania on digital assets and crypto policy. Multiple engagements with the Inter-American Development Bank.',
@@ -35,8 +34,8 @@ const PRACTICE_AREAS: PracticeArea[] = [
     desc: "AI is reshaping how institutions operate. We help organizations move beyond the hype to practical, deployable solutions that respect local context.",
     meta: 'Growing practice',
     capabilities: [
-      'AI implementation strategy',
-      'Infrastructure & tooling assessment',
+      'AI implementation strategy & training',
+      'Agentic Infrastructure & tooling',
       'Deployment roadmaps for institutional contexts',
       'AI-assisted product development',
     ],
@@ -77,7 +76,7 @@ export default function Practice() {
           </div>
           <p className="section-lead">
             We work at the intersection of policy, technology, and practical
-            deployment — across three interconnected verticals.
+            deployment across three interconnected verticals.
           </p>
         </Reveal>
 

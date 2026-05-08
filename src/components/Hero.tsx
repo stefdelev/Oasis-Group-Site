@@ -33,7 +33,7 @@ export default function Hero() {
           </h1>
           <p className="hero-sub">
             We help governments, central banks, and institutions implement digital
-            currency, applied AI, and emerging-tech infrastructure — with the
+            currency, applied AI, and blockchain infrastructure - with the
             practitioner depth that theory alone can't deliver.
           </p>
           <div className="hero-actions">

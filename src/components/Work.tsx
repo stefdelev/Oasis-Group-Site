@@ -48,7 +48,7 @@ export default function Work() {
             </h2>
           </div>
           <p className="section-lead">
-            As a venture studio, we don't just consult — we build. Each engagement
+            As a venture studio, we're actually builders, not just consultants. Each engagement
             ships infrastructure, ventures, or policy frameworks that operate at
             real-world scale.
           </p>

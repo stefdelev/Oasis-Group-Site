@@ -14,7 +14,7 @@ export default function About() {
           </div>
           <p className="section-lead">
             The Oasis Group is a boutique consultancy and venture studio
-            headquartered in The Bahamas — pioneering collaborations in frontier
+            headquartered in The Bahamas, pioneering collaborations in frontier
             technology and governance across the Global South.
           </p>
         </Reveal>
@@ -23,7 +23,7 @@ export default function About() {
           <Reveal className="about-copy">
             <p>
               Most frontier technology is designed in Western markets and exported
-              as an afterthought. The result? Frameworks that don't fit local
+              as an afterthought. The result: frameworks that don't fit local
               realities, implementations that stall, and missed opportunities for
               the regions that could benefit most.
             </p>
@@ -34,7 +34,7 @@ export default function About() {
             </p>
             <p>
               Our founder, Stefen Deleveaux, has advised on digital currency
-              strategy since 2017 — years before most nations had CBDC on their
+              strategy since 2017; years before most nations had CBDC on their
               agenda. That practitioner knowledge, paired with a network of
               specialist partners, allows us to move from policy to production at
               the speed institutions actually need.
@@ -44,7 +44,7 @@ export default function About() {
           <Reveal delay={140} className="about-side">
             <div className="pull-tag">A note from the founder</div>
             <p className="pull">
-              "Big consultancies deliver frameworks. We deliver implementation —
+              "Big consultancies deliver frameworks. We deliver implementation
               at the speed and flexibility institutions actually need."
             </p>
             <hr />
