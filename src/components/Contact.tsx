@@ -64,9 +64,12 @@ export default function Contact() {
       return;
     }
     setStatus('sending');
+    // Forward the honeypot so Netlify can flag bot submissions as spam.
+    const botField = new FormData(e.currentTarget).get('bot-field');
     try {
       const body = encode({
         'form-name': 'contact',
+        'bot-field': typeof botField === 'string' ? botField : '',
         name: form.name,
         email: form.email,
         organization: form.org,
@@ -143,8 +146,6 @@ export default function Contact() {
                 <form
                   name="contact"
                   method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
                   onSubmit={submit}
                   noValidate
                 >
