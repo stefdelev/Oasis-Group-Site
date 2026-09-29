@@ -6,7 +6,7 @@ from `src/components/GlobeArt.tsx`), rendered to PNG with headless Chrome.
 
 | Source | Output |
 |---|---|
-| `og-image.html` (1200×630 CSS px, rendered at 2× → 2400×1260) | `public/og-image.png` |
+| `og-image.html` (1200×630 CSS px, rendered at 2× → 2400×1260) | `public/og-image-v2.png` (bump the suffix whenever the image changes — LinkedIn caches images by URL) |
 | `favicon.html` (512×512) | `public/icon-512.png`, `apple-touch-icon.png` (180), `favicon-32.png`, `favicon.ico` (16/32/48) |
 
 To regenerate: serve this folder, screenshot each page at its size with
