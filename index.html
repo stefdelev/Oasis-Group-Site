@@ -8,10 +8,26 @@
     <meta name="description" content="The Oasis Group - A boutique advisory and venture studio building the digital frontier from the Caribbean to the Global South." />
     <meta property="og:title" content="The Oasis Group | Bringing Frontier Tech Home" />
     <meta property="og:description" content="Boutique advisory and venture studio building the digital frontier — from the Caribbean to the Global South." />
-    <meta property="og:image" content="/images/oasis-logo.png" />
+    <meta property="og:image" content="https://theoasisgroup.xyz/images/oasis-logo.png" />
+    <meta property="og:url" content="https://theoasisgroup.xyz/" />
+    <meta property="og:site_name" content="The Oasis Group" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/images/oasis-logo.png" />
+    <meta name="twitter:image" content="https://theoasisgroup.xyz/images/oasis-logo.png" />
+    <link rel="canonical" href="https://theoasisgroup.xyz/" />
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "The Oasis Group",
+        "url": "https://theoasisgroup.xyz/",
+        "logo": "https://theoasisgroup.xyz/images/oasis-logo.png",
+        "description": "Boutique advisory and venture studio building the digital frontier — from the Caribbean to the Global South.",
+        "email": "hello@theoasisgroup.xyz",
+        "sameAs": ["https://linkedin.com/company/theoasisgroup"]
+      }
+    </script>
     <title>The Oasis Group | Bringing Frontier Tech Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,10 +39,11 @@
       <input type="text" name="name" />
       <input type="text" name="organization" />
       <input type="email" name="email" />
+      <input type="text" name="interest" />
       <textarea name="message"></textarea>
     </form>
 
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
